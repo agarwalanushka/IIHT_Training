@@ -19,7 +19,7 @@ class Father extends GrandFather{
 	}
 }
 
-class Daughter extends GrandFather{
+class Daughter extends Father{
 	void Daughter() {
 		System.out.println("Daughter of Agarwal Family");
 	}
