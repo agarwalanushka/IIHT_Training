@@ -68,19 +68,61 @@ public class Assignment5 {
 		}
 		System.out.print("] ");
 		
-		/*//CASE 3
-		//COUNT
-		
-		int[] count = new int[unique];
-		
-		int j ;
-		for(int i =0;i<n;i++) {
-			j = i+1;
-			if(j>=n) {
-				break;
-			}
-			
-		}*/
+		System.out.print("\nStep 3:");
+        int[] iteration=new int[arr.length];
+        for (int i = 0; i < checked.length; i++)
+        {
+            checked[i]=false;
+        }
+        for (int i = 0; i < checked.length; i++)
+        {
+            iteration[i]=0;
+        }
+        int c=0;
+        int max=0;
+        for(int i=0;i<arr.length;i++)
+        {
+            c=0;
+            if(!checked[i]) {
+                //System.out.print("[");
+                for (int j = i; j < arr.length; j++) {
+                    if (arr[i] == arr[j]) {
+                        c++;
+                        //System.out.print(arr[i] + " ");
+                        checked[j]=true;
+                    }
+                }
+                iteration[i]=c;
+                //System.out.print("]");
+            }
+            if (c>max)
+            {
+                max=c;
+            }
+        }
+
+
+        while(max!=0)
+        {
+            for(int i=0;i<arr.length;i++) {
+                if(iteration[i]==max)
+                {
+                    System.out.print("[");
+                    for(int k=0;k <iteration[i];k++ )
+                        System.out.print(arr[i]+" ");
+                    System.out.print("]");
+                    iteration[i]=0;
+                }
+            }
+            max=0;
+            for(int k=0;k <iteration.length;k++ )
+            {
+                if (iteration[k]>max)
+                {
+                    max=iteration[k];
+                }
+            }
+        }
 		
 	}
 }
